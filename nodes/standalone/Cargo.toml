@@ -4,7 +4,7 @@ version = '1.0.0'
 edition = '2018'
 license = 'GPL-3.0-only'
 authors = ['Unique The One <god@unique.one>']
-homepage = 'https://myriad.social'
+homepage = 'https://uniqueone.network'
 repository = 'https://github.com/onimusya/uonenet-node'
 
 [package.metadata.docs.rs]
@@ -109,4 +109,4 @@ uonenet-runtime = { path = '../../runtimes/standalone' }
 
 [features]
 default = []
-runtime-benchmarks = ['myriad-runtime/runtime-benchmarks']
+runtime-benchmarks = ['uonenet-runtime/runtime-benchmarks']
