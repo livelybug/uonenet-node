@@ -66,13 +66,6 @@ beefy-primitives = { git = 'https://github.com/paritytech/grandpa-bridge-gadget'
 ## Grandpa Bridge Pallet Dependencies
 pallet-beefy = { git = 'https://github.com/paritytech/grandpa-bridge-gadget', branch = 'polkadot-v0.9.8', default-features = false }
 
-# Grandpa Bridge Dependencies
-## Grandpa Bridge Primitive Dependencies
-beefy-primitives = { git = 'https://github.com/paritytech/grandpa-bridge-gadget', branch = 'polkadot-v0.9.8', default-features = false }
-
-## Grandpa Bridge Pallet Dependencies
-pallet-beefy = { git = 'https://github.com/paritytech/grandpa-bridge-gadget', branch = 'polkadot-v0.9.8', default-features = false }
-
 # Frontier Dependencies
 ## Frontier Primitive Dependencies
 fp-rpc = { git = 'https://github.com/purestake/frontier', branch = 'moonbeam-polkadot-v0.9.8', default-features = false }

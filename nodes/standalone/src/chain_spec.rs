@@ -366,3 +366,4 @@ fn testnet_genesis(
 		},
 		ethereum: EthereumConfig {},
 	}
+}
