@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -e
+
+KEY_SEED=""
+BABE="0xd811839e0xxxxxxxeb64e6f312a1eaf2988ae2c5fea9dd0b8ac018c146ca7073"
+GRAN="0xdfb839beaf6fxxxxxxx7b9059161d43f2682a6c3a0ac765f1e5054063ed9903b"
+BEEFY="0x02d337069cb73xxxxxxx4e35e5189ad62932e4f2ee3f985b6bbff654cb68017ff1"
+RPC_ENDPOINT=192.165.82.33:9933
+
+curl -H "Content-Type: application/json" \
+ --data '{ "jsonrpc":"2.0", "method":"author_insertKey", "params":["'"babe"'", "'"${KEY_SEED}"'", "'"${BABE}"'"],"id":1 }' \
+ "${RPC_ENDPOINT}"
+
+curl -H "Content-Type: application/json" \
+ --data '{ "jsonrpc":"2.0", "method":"author_insertKey", "params":["'"gran"'", "'"${KEY_SEED}"'", "'"${GRAN}"'"],"id":1 }' \
+ "${RPC_ENDPOINT}"
+
+curl -H "Content-Type: application/json" \
+ --data '{ "jsonrpc":"2.0", "method":"author_insertKey", "params":["'"imon"'", "'"${KEY_SEED}"'", "'"${BABE}"'"],"id":1 }' \
+ "${RPC_ENDPOINT}"
+
+curl -H "Content-Type: application/json" \
+ --data '{ "jsonrpc":"2.0", "method":"author_insertKey", "params":["'"befy"'", "'"${KEY_SEED}"'", "'"${BEEFY}"'"],"id":1 }' \
+ "${RPC_ENDPOINT}"
+ 

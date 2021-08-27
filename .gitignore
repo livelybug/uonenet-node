@@ -18,6 +18,8 @@ polkadot.*
 .DS_Store
 .idea/
 
+script/*.sh
+
 # Added by cargo
 /target
 

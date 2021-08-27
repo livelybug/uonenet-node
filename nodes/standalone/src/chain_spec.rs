@@ -24,10 +24,10 @@ use sp_runtime::Perbill;
 pub type ChainSpec = sc_service::GenericChainSpec<GenesisConfig>;
 
 fn session_keys(
-	babe: BabeId,
-	grandpa: GrandpaId,
-	im_online: ImOnlineId,
-	beefy: BeefyId,
+	babe: BabeId, // sr25519
+	grandpa: GrandpaId, // ed25519
+	im_online: ImOnlineId, // sr25519
+	beefy: BeefyId, // ecdsa
 ) -> SessionKeys {
 	SessionKeys { babe, grandpa, im_online, beefy }
 }
@@ -87,56 +87,46 @@ pub fn staging_tesnet_config() -> Result<ChainSpec, String> {
 			testnet_genesis(
 				// WASM Binary
 				wasm_binary,
-				// Sudo account
-				// 5HVgMkXJGoDGQdnTyah4shbhuaiNCmAUdqCyTdYAnr9T9Y1Q
-				hex!["f03941f93b990c271015d3b485f137e117aab80af0a03b557966927caaa7d44f"].into(),
+				// Sudo account, sr25519
+				// 5FbjQgSg97nvPsfuf21D886B26mwtNvZTgEfGfWR6gdNy3Tx
+				hex!["9c5e883c0a7795c81d354aa2d596364e71f4bb07d047c8dcb67547fbe1114f12"].into(),
+
 				// Initial PoA authorities
+				// AccountId, ValidatorId, BabeId, GrandpaId, ImOnlineId, BeefyId
 				vec![
 					(
-						// 5HBdevUsByJZMGqdZucSr8qXvtRKHRzzqjq2NHVwXUiP8LnC
-						hex!["e275bcf8adb68ed14eee7287461236cbe4a1326810e9e22b4baf05964882f828"]
-							.into(),
-						// 5GhTbhujpv3nZQx6idibYSwYeNCN7ddpqqjPjwZn43xdvYMT
-						hex!["ccf90463ce9ae4cf881c549b09ddeac1960316930e390ca47eeba95741386e5b"]
-							.into(),
-						// 5GhTbhujpv3nZQx6idibYSwYeNCN7ddpqqjPjwZn43xdvYMT
-						hex!["ccf90463ce9ae4cf881c549b09ddeac1960316930e390ca47eeba95741386e5b"]
-							.unchecked_into(),
-						// 5G5ghjBD9fkx9gR59LQLmQvFnayjaRhdBKqpujvNjYjmx4ks
-						hex!["b1b04b436a8772b6429a549ae68d72fd88b8533462d03d83d9acaf9500b3ca00"]
-							.unchecked_into(),
-						// 5GhTbhujpv3nZQx6idibYSwYeNCN7ddpqqjPjwZn43xdvYMT
-						hex!["ccf90463ce9ae4cf881c549b09ddeac1960316930e390ca47eeba95741386e5b"]
-							.unchecked_into(),
-						// KW8mwncjSVKxsCbACjDDk2bLHLsq2gkeVw5xjKW4vSLgWimn1
-						hex!["0302c5928b0861672271346c29e30faa2cb5328e024d1c45f2689e886cb12b6de1"]
-							.unchecked_into(),
-					),
-					(
-						// 5GVjfe6b3s1sdMr2Q5oxVcSGHL33KWmwJZxDThR9b6tteyMG
-						hex!["c40829541f7121c67ccb2bee956887735687e57be0ada26289501636ac60946f"]
-							.into(),
-						// 5H9RP9sy2g9Jaj1GG2zGaytLdxoBHQnqMaKmqvtFPJpYiRV3
-						hex!["e0c5efc09df70c2e236e32ebba4c89a5ae538dacf25412e2a23e6a175291453a"]
-							.into(),
-						// 5H9RP9sy2g9Jaj1GG2zGaytLdxoBHQnqMaKmqvtFPJpYiRV3
-						hex!["e0c5efc09df70c2e236e32ebba4c89a5ae538dacf25412e2a23e6a175291453a"]
-							.unchecked_into(),
-						// 5Dvf9Qq8rmfFdSLACJwvcDEYJMYYq6wYiKkazZrUmWLqUDEE
-						hex!["52556063e8c72431f643c8eb66ba172d5b0d2a095429a8a6e29b522208e26ccd"]
-							.unchecked_into(),
-						// 5H9RP9sy2g9Jaj1GG2zGaytLdxoBHQnqMaKmqvtFPJpYiRV3
-						hex!["e0c5efc09df70c2e236e32ebba4c89a5ae538dacf25412e2a23e6a175291453a"]
-							.unchecked_into(),
-						// KW9uY45eZ65PpHxk21KiXvc8XiTse6amUPKpAWgvxmfhorryw
-						hex!["0334cbe01d6db7bf3d0f4148c468a3a01a5a560f21244d9891c35de23d7c752c24"]
-							.unchecked_into(),
+						// 5GpLLa9frPJepnquJosVBCc9kH74SEaFf1LRgrRcN3uskM8c
+						hex!["d2374ae2756d053da9f4c8f5ed36fd381326b3b73986a1a0cd6fcc19254b3924"].into(),
+						// 5HGtNjqdYQxn8mhBX22Z6HPjRSSmeb54zTTs3s798yyu4fk9
+						hex!["e6778539813675cb74a29d82d68ec7d9626430cf5818bc75da3af738c8a48666"].into(),
+						// 5HGtNjqdYQxn8mhBX22Z6HPjRSSmeb54zTTs3s798yyu4fk9
+						hex!["e6778539813675cb74a29d82d68ec7d9626430cf5818bc75da3af738c8a48666"].unchecked_into(),
+						// 5HgtmpdnGgKJ1Wia5XTsFPGw3JYjKXFrrCXQq7TparBwLzJi
+						hex!["f8c6bff47eec7c2fe49be0b0d6c638757ff19562ea9ae1a76ed63d22f979b79c"].unchecked_into(),
+						// 5HGtNjqdYQxn8mhBX22Z6HPjRSSmeb54zTTs3s798yyu4fk9
+						hex!["e6778539813675cb74a29d82d68ec7d9626430cf5818bc75da3af738c8a48666"].unchecked_into(),
+						// 5CtT5c71rGrnnj3VJqvNqvJQKeBwyh73jGm4EduQ32igi1ym
+						hex!["02e23d37735cebc72732f31c86cca3a70f2c5d3087854ac94fe5aa1fec1bbb0e18"].unchecked_into(),
+						),
+						(
+						// 5CZmRtq8ptpiBSh93rEwXSJmMAgXLHzSpDhZWMHDGGek8cV9
+						hex!["162a24df69ad68f581a49b1374f8ec6bca2f9ab93f1d59495f4d76e72fbbdf1a"].into(),
+						// 5G9LtRirf1bVqaVChnZmCXmQ2f4dgFCdjDQsS1eA4sGSE8NS
+						hex!["b47a9211bf46832f093a29965082003d5b40c817cc678808bf177c879abbbc42"].into(),
+						// 5G9LtRirf1bVqaVChnZmCXmQ2f4dgFCdjDQsS1eA4sGSE8NS
+						hex!["b47a9211bf46832f093a29965082003d5b40c817cc678808bf177c879abbbc42"].unchecked_into(),
+						// 5CYZaymcu6jdq3bzsch7dgfsQdG347VEjPNbygwrtUXqGqmu
+						hex!["153f07c39a47483fbdc7be025a78139fec54e350894fbaf567125135571c0e66"].unchecked_into(),
+						// 5G9LtRirf1bVqaVChnZmCXmQ2f4dgFCdjDQsS1eA4sGSE8NS
+						hex!["b47a9211bf46832f093a29965082003d5b40c817cc678808bf177c879abbbc42"].unchecked_into(),
+						// 5CvRworpEZfn7FYeeXJmTHBVoEZvow3HRDxWCEZ5cN9dJKF6
+						hex!["036ce9ccdf3a1a4a6f5e65c44cd2453640ba4cee5a148e6362baa5d2129aed94fb"].unchecked_into(),
 					),
 				],
 				// Pre-funded accounts
 				vec![
-					// 5HVgMkXJGoDGQdnTyah4shbhuaiNCmAUdqCyTdYAnr9T9Y1Q
-					hex!["f03941f93b990c271015d3b485f137e117aab80af0a03b557966927caaa7d44f"].into(),
+					// 5FbjQgSg97nvPsfuf21D886B26mwtNvZTgEfGfWR6gdNy3Tx
+					hex!["9c5e883c0a7795c81d354aa2d596364e71f4bb07d047c8dcb67547fbe1114f12"].into(),
 				],
 			)
 		},
@@ -168,8 +158,8 @@ pub fn development_tesnet_config() -> Result<ChainSpec, String> {
 				// WASM Binary
 				wasm_binary,
 				// Sudo account
-				// 5EZYLWe1j3MjuH1vJf6Mc5CxaeGfVeoAQn3DwYuLvABDYU1U
-				hex!["6e768960d4a61b5583eb76ac22ba91dce97ef55fa8ca4b764c774cdb9af93b36"].into(),
+				// 5FbjQgSg97nvPsfuf21D886B26mwtNvZTgEfGfWR6gdNy3Tx
+				hex!["9c5e883c0a7795c81d354aa2d596364e71f4bb07d047c8dcb67547fbe1114f12"].into(),
 				// Initial PoA authorities
 				vec![(
 					// 5CXF4c7rRuX3NfEbToR32ScG3mDNvJ1aFGVg7Wd6YZS5cU37
@@ -191,8 +181,9 @@ pub fn development_tesnet_config() -> Result<ChainSpec, String> {
 				)],
 				// Pre-funded accounts
 				vec![
-					// 5EZYLWe1j3MjuH1vJf6Mc5CxaeGfVeoAQn3DwYuLvABDYU1U
-					hex!["6e768960d4a61b5583eb76ac22ba91dce97ef55fa8ca4b764c774cdb9af93b36"].into(),
+					// 0x9c5e883c0a7795c81d354aa2d596364e71f4bb07 - H160
+					// 5FbjQgSg97nvPsfuf21D886B26mwtNvZTgEfGfWR6gdNy3Tx
+					hex!["9c5e883c0a7795c81d354aa2d596364e71f4bb07d047c8dcb67547fbe1114f12"].into(),
 				],
 			)
 		},
@@ -355,7 +346,7 @@ fn testnet_genesis(
 					// Derived from SS58 (42 prefix) address
 					// SS58: 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY
 					// hex: 0xd43593c715fdd31c61141abd04a99fd6822c8558854ccde39a5684e7a56da27d
-					// Using the full hex key, truncating to the first 20 bytes (the first 40 hex chars)
+					// Using the full hex key, truncating to the first 20 bytes (the first 40 hex chars)					            
 					H160::from_str("d43593c715fdd31c61141abd04a99fd6822c8558")
 						.expect("internal H160 is valid; qed"),
 					pallet_evm::GenesisAccount {
@@ -366,7 +357,7 @@ fn testnet_genesis(
 						storage: Default::default(),
 					},
 				);				
-				map.insert(
+				map.insert(         
 					H160::from_str("6be02d1d3665660d22ff9624b7be0551ee1ac91b")
 						.expect("internal H160 is valid; qed"),
 					pallet_evm::GenesisAccount {
