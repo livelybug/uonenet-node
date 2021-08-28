@@ -58,6 +58,7 @@ pallet-session = { git = 'https://github.com/paritytech/substrate', branch = 'po
 pallet-staking = { git = 'https://github.com/paritytech/substrate', branch = 'polkadot-v0.9.8', default-features = false }
 pallet-staking-reward-curve = { git = 'https://github.com/paritytech/substrate', branch = 'polkadot-v0.9.8', default-features = false }
 pallet-mmr = { git = 'https://github.com/paritytech/substrate', branch = 'polkadot-v0.9.8', default-features = false }
+pallet-identity = { git = 'https://github.com/paritytech/substrate', branch = 'polkadot-v0.9.8', default-features = false }
 
 # Grandpa Bridge Dependencies
 ## Grandpa Bridge Primitive Dependencies
@@ -135,5 +136,6 @@ std = [
 	'pallet-evm-precompile-simple/std',
 	'pallet-evm-precompile-modexp/std',
 	'pallet-evm-precompile-sha3fips/std',
-	'pallet-ethereum/std'	
+	'pallet-ethereum/std',
+	'pallet-identity/std'
 ]

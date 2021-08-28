@@ -149,7 +149,7 @@ pub const VERSION: RuntimeVersion = RuntimeVersion {
 	//   `spec_version`, and `authoring_version` are the same between Wasm and native.
 	// This value is set to 100 to notify Polkadot-JS App (https://polkadot.js.org/apps) to use
 	//   the compatible custom types.
-	spec_version: 101,
+	spec_version: 102,
 	impl_version: 1,
 	apis: RUNTIME_API_VERSIONS,
 	transaction_version: 1,
@@ -493,6 +493,30 @@ impl pallet_sudo::Config for Runtime {
 }
 
 parameter_types! {
+	pub const BasicDeposit: Balance = 5 * currency::UON;       // 258 bytes on-chain
+	pub const FieldDeposit: Balance = 250 * currency::MILLIUON;        // 66 bytes on-chain
+	pub const SubAccountDeposit: Balance = 1 * currency::UON;   // 53 bytes on-chain
+	pub const MaxSubAccounts: u32 = 100;
+	pub const MaxAdditionalFields: u32 = 100;
+	pub const MaxRegistrars: u32 = 20;
+}
+
+impl pallet_identity::Config for Runtime {
+	type BasicDeposit = BasicDeposit;
+	type Currency = Balances;
+	type Event = Event;
+	type FieldDeposit = FieldDeposit;
+	type ForceOrigin = EnsureRoot<AccountId>;
+	type MaxAdditionalFields = MaxAdditionalFields;
+	type MaxRegistrars = MaxRegistrars;
+	type MaxSubAccounts = MaxSubAccounts;
+	type RegistrarOrigin = EnsureRoot<AccountId>;
+	type Slashed = ();
+	type SubAccountDeposit = SubAccountDeposit;
+	type WeightInfo = pallet_identity::weights::SubstrateWeight<Runtime>;
+}
+
+parameter_types! {
 	pub const ImOnlineUnsignedPriority: TransactionPriority = TransactionPriority::max_value();
 	/// We prioritize im-online heartbeats over election solution submission.
 	pub const StakingUnsignedPriority: TransactionPriority = TransactionPriority::max_value() / 2;
@@ -738,6 +762,7 @@ construct_runtime!(
 		Sudo: pallet_sudo::{Pallet, Call, Config<T>, Storage, Event<T>},
 		Ethereum: pallet_ethereum::{Pallet, Call, Storage, Event, Config, ValidateUnsigned},
 		EVM: pallet_evm::{Pallet, Config, Call, Storage, Event<T>},
+		Identity: pallet_identity::{Pallet, Call, Storage, Event<T>},
 	}
 );
 
