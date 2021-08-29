@@ -5,7 +5,7 @@ edition = '2018'
 license = 'GPL-3.0-only'
 authors = ['Unique The One <god@unique.one>']
 homepage = 'https://uniqueone.network'
-repository = 'https://github.com/onimusya/uonenet-node'
+repository = 'https://github.com/Unique-One-Official/uonenet-node'
 
 [package.metadata.docs.rs]
 targets = ['x86_64-unknown-linux-gnu']

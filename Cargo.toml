@@ -1,7 +1,9 @@
 [workspace]
 members = [
     'nodes/standalone',
+    'nodes/appchain',
     'runtimes/standalone',
+    'runtimes/appchain',    
 ]
 
 [profile.release]

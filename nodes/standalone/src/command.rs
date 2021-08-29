@@ -25,7 +25,7 @@ impl SubstrateCli for Cli {
 	}
 
 	fn support_url() -> String {
-		"https://github.com/onimusya/uonenet-node/issues/new".into()
+		"https://github.com/Unique-One-Official/uonenet-node/issues/new".into()
 	}
 
 	fn copyright_start_year() -> i32 {
