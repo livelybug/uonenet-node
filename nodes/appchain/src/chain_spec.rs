@@ -1,4 +1,4 @@
-use uonenet_appchain_runtime::{
+use uonenet_appchain_cs_runtime::{
 	AccountId, BabeConfig, BalancesConfig, EVMConfig, EthereumConfig, GenesisConfig, GrandpaConfig,
 	Signature, SudoConfig, SystemConfig, BABE_GENESIS_EPOCH_CONFIG, WASM_BINARY,
 };
@@ -10,7 +10,7 @@ use std::{collections::BTreeMap, str::FromStr};
 
 use beefy_primitives::crypto::AuthorityId as BeefyId;
 use hex_literal::hex;
-use uonenet_appchain_runtime::{
+use uonenet_appchain_cs_runtime::{
 	currency::UON, opaque::SessionKeys, Balance, BeefyConfig, ImOnlineConfig,
 	OctopusAppchainConfig, SessionConfig, StakingConfig,
 };

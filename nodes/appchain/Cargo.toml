@@ -1,5 +1,5 @@
 [package]
-name = 'uonenet-appchain'
+name = 'uonenet-appchain-cs'
 version = '1.0.1'
 edition = '2018'
 license = 'GPL-3.0-only'
@@ -109,8 +109,8 @@ pallet-octopus-appchain = { git = 'https://github.com/blocksphereid/pallet-octop
 
 # Local Dependencies
 # Myriad Runtime Dependencies
-uonenet-appchain-runtime = { path = '../../runtimes/appchain' }
+uonenet-appchain-cs-runtime = { path = '../../runtimes/appchain' }
 
 [features]
 default = []
-runtime-benchmarks = ['uonenet-appchain-runtime/runtime-benchmarks']
+runtime-benchmarks = ['uonenet-appchain-cs-runtime/runtime-benchmarks']

@@ -7,7 +7,7 @@
 
 use std::{collections::BTreeMap, sync::Arc};
 
-use uonenet_appchain_runtime::{opaque::Block, AccountId, Balance, BlockNumber, Hash, Index};
+use uonenet_appchain_cs_runtime::{opaque::Block, AccountId, Balance, BlockNumber, Hash, Index};
 use sc_client_api::{
 	backend::{AuxStore, Backend, StateBackend, StorageProvider},
 	client::BlockchainEvents,
@@ -234,7 +234,7 @@ where
 	io.extend_with(EthApiServer::to_delegate(EthApi::new(
 		client.clone(),
 		pool.clone(),
-		uonenet_appchain_runtime::TransactionConverter,
+		uonenet_appchain_cs_runtime::TransactionConverter,
 		network.clone(),
 		pending_transactions,
 		signers,

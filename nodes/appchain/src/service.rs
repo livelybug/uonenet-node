@@ -3,7 +3,7 @@
 //! Service implementation. Specialized wrapper over substrate service.
 
 use fc_mapping_sync::MappingSyncWorker;
-use uonenet_appchain_runtime::{opaque::Block, RuntimeApi};
+use uonenet_appchain_cs_runtime::{opaque::Block, RuntimeApi};
 use sc_client_api::{BlockchainEvents, ExecutorProvider, RemoteBackend};
 use sc_consensus_babe::SlotProportion;
 use sc_executor::native_executor_instance;
@@ -29,8 +29,8 @@ use futures::StreamExt;
 // Our native executor instance.
 native_executor_instance!(
 	pub Executor,
-	uonenet_appchain_runtime::api::dispatch,
-	uonenet_appchain_runtime::native_version,
+	uonenet_appchain_cs_runtime::api::dispatch,
+	uonenet_appchain_cs_runtime::native_version,
 	frame_benchmarking::benchmarking::HostFunctions,
 );
 

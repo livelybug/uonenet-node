@@ -8971,7 +8971,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "uonenet-appchain"
+name = "uonenet-appchain-cs"
 version = "1.0.1"
 dependencies = [
  "beefy-gadget",
@@ -9042,11 +9042,11 @@ dependencies = [
  "substrate-build-script-utils",
  "substrate-frame-rpc-system",
  "substrate-prometheus-endpoint",
- "uonenet-appchain-runtime",
+ "uonenet-appchain-cs-runtime",
 ]
 
 [[package]]
-name = "uonenet-appchain-runtime"
+name = "uonenet-appchain-cs-runtime"
 version = "1.0.1"
 dependencies = [
  "beefy-primitives",

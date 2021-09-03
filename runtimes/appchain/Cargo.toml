@@ -1,5 +1,5 @@
 [package]
-name = 'uonenet-appchain-runtime'
+name = 'uonenet-appchain-cs-runtime'
 description = 'Unique One Network AppChain Runtime'
 version = '1.0.1'
 edition = '2018'
